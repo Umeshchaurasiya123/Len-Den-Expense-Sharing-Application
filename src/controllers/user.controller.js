@@ -7,8 +7,11 @@ import { asyncHandler } from "../utils/asyncHandler.js"
 const generateAccessAndRefereshTokens = async(userId) =>{
     try {
         const user = await User.findById(userId)
+        console.log(user)
         const accessToken = user.generateAccessToken()
         const refreshToken = user.generateRefreshToken()
+        console.log("accessToken ",accessToken)
+        console.log("refreshToken ",refreshToken)
 
         user.refreshToken = refreshToken
         await user.save({ validateBeforeSave: false })
