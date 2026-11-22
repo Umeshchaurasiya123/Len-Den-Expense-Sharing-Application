@@ -10,8 +10,8 @@ const generateAccessAndRefereshTokens = async(userId) =>{
         console.log(user)
         const accessToken = user.generateAccessToken()
         const refreshToken = user.generateRefreshToken()
-        console.log("accessToken ",accessToken)
-        console.log("refreshToken ",refreshToken)
+        // console.log("accessToken ",accessToken)
+        // console.log("refreshToken ",refreshToken)
 
         user.refreshToken = refreshToken
         await user.save({ validateBeforeSave: false })
@@ -111,7 +111,6 @@ const loginUser =  asyncHandler(async(req, res)=>{
         )
 
 })
-
 
 export {registerUser,loginUser}
 
